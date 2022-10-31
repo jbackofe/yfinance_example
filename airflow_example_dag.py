@@ -1,7 +1,7 @@
-from datetime import timedelta
+from datetime import timedelta, datetime
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
-from airflow.utils.dates import days_ago
+# from airflow.utils.dates import days_ago
 from modules.yfinance_example import pullUploadFinanceData
 
 pullUploadFinanceData()
@@ -9,7 +9,7 @@ pullUploadFinanceData()
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
-    'start_date': days_ago(2022, 10, 30),
+    'start_date': datetime(2022, 10, 30),
     'email': ['backofen.jared@gmail.com'],
     'email_on_failure': False,
     'email_on_retry': False,
