@@ -1,10 +1,7 @@
 from datetime import timedelta, datetime
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
-# from airflow.utils.dates import days_ago
 from modules.yfinance_example import pullUploadFinanceData
-
-pullUploadFinanceData()
 
 default_args = {
     'owner': 'airflow',
