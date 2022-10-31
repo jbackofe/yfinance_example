@@ -27,7 +27,6 @@ def pullUploadFinanceData():
         histories.append(daily)
         
     data = pd.concat(histories)
-    print(data)
     todays_date = datetime.datetime.today().strftime("%Y-%m-%d")
 
     # Storing data on Data Lake
@@ -39,3 +38,5 @@ def pullUploadFinanceData():
         table="history_daily",
         filename_prefix=todays_date
     )
+
+    return data
